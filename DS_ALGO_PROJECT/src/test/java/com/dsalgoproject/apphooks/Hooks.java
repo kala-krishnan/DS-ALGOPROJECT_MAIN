@@ -16,7 +16,7 @@ public class Hooks {
     	try {
     		CommonUtils.loadProperties();
     	
-    	if(driver==null) {
+    	if(driver== null) {
     		driver = DriverManager.launchBrowser();
     	
     	}
