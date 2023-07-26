@@ -18,13 +18,16 @@
 #Sample Feature Definition Template
 @tag
 	Feature: Navigating to Login page of DS Algo
-  	Scenario: Navigating to login page
+  	Scenario: The user clicks on register link on signin page
     Given The user opens the Login page
     When 	The user clicks on the Login page with incorrect username and password
-    Then  It should display an error message "Incorrect username and password"
+    Then  It should display an error message "Invalid Username and Password"
     
-   	Scenario: The user is presented with error message for "Incorrect username and password"
+   	Scenario: The user is presented with error message for "Invalid Username and Password"
    	Given  The user opens the Login page
     When The user enters the correct username and password and clicks Login button
     Then The user can see the  message "You are logged in"
+   
+    When 	The user clicks on the Signout button
+    Then 	It should display a logoutmessage "Logged out successfully"
  
