@@ -4,9 +4,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.dsalgoproject.utility.ExcelUtils;
+
+
 
 public class LoginPage_PageObject {
-WebDriver driver;
+	WebDriver driver;
+	
+	String message = "";
 	
  	@FindBy(id ="id_username")
  	WebElement Username;
@@ -19,7 +24,11 @@ WebDriver driver;
  	
  	@FindBy (xpath="//div[@class='alert alert-primary']")
  	WebElement loginMsg;
-	
+ 	
+ 	@FindBy(xpath="//a[@href='/logout']") 
+ 	 WebElement SignoutButton;
+
+
 	public LoginPage_PageObject(WebDriver driver)
 	{
 		this.driver = driver;
@@ -31,23 +40,37 @@ WebDriver driver;
 	}
 	public void IncorrectUserNameAndPassword()
 	{
-		//Username.click();
+		
 		Username.sendKeys("PurnimaSDE119");
-		//password.click();
 		password.sendKeys(" Numpy");
 		loginButton.click();
+		message= loginMsg.getText();
+		
 	}
 
 	public void CorrectUsernameAndPassword()
  	{
- 		
- 		//Username.click();
-		Username.sendKeys("Purnima1345@gmail.com");
-		//password.click();
-		password.sendKeys("Kind@123");
+ 
+		String path=System.getProperty("user.dir");
+		ExcelUtils excel= new ExcelUtils(path+"//src//test//resources//ExcelData//ExcelData.xlsx","Login");
+		String sUsername= excel.getCellDataString(1,0);
+		String sPassword= excel.getCellDataNumber(1,1);
+		Username.sendKeys(sUsername);
+		password.sendKeys(sPassword);
 		loginButton.click();
+		message= loginMsg.getText();
+		
  	}
 	
-	
-
+	public void SignOut()
+ 	{
+ 		
+ 		SignoutButton.click();
+ 		message= loginMsg.getText();
+ 		
+ 	}
+ 	
+	public String getMessage() {
+		return message;
+		}
 }
