@@ -3,7 +3,10 @@ package com.dsalgoproject.utility;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
+
+import org.openqa.selenium.WebElement;
 
 public class CommonUtils {
 	public static String APP_URL;
@@ -11,6 +14,14 @@ public class CommonUtils {
 	public static String UserName;
 	public static String Password;
 	public static String CHROME_DRIVER;
+	public static String ARRAYSOPTIONS;
+	public static String LINKEDLISTOPTIONS;
+	public static String STACKOPTIONS;
+	public static String QUEUEOPTIONS;
+	public static String TREEOPTIONS;
+	public static String GRAPHOPTIONS;
+	public static String DATASTRUCTURESOPTIONS;
+	
 	public static void loadProperties() {
 		
 		//FileReader reader= null;
@@ -37,7 +48,30 @@ public class CommonUtils {
 	CHROME_DRIVER = properties.getProperty("CHROME_DRIVER");
 	UserName = properties.getProperty("UserName");
 	Password = properties.getProperty("Password");
+	DATASTRUCTURESOPTIONS=properties.getProperty("DataStructuresValue");
+	ARRAYSOPTIONS = properties.getProperty("ArrayOptionValue");
+	LINKEDLISTOPTIONS = properties.getProperty("LinkedListOptionValue");
+	STACKOPTIONS = properties.getProperty("StackOptionValue");
+	QUEUEOPTIONS = properties.getProperty("QueueOptionValue");
+	TREEOPTIONS = properties.getProperty("TreeOptionValue");
+	GRAPHOPTIONS = properties.getProperty("GraphOptionValue");
+	
+	
 		
+	}
+	
+	public static boolean webclick(List<WebElement> elements,String optionValue)
+	{
+		WebElement matchingElement = elements.stream()
+		        .filter(x -> x.getText().equals(optionValue))
+		        .findFirst()
+		        .get();
+				
+				if(matchingElement != null) {
+					matchingElement.click();
+					return true;
+				}
+				return false;
 	}
 
 }
