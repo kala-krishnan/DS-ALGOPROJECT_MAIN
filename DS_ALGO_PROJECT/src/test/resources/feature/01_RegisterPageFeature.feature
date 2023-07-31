@@ -19,35 +19,35 @@
 @tag
 Feature: Feature file to test register  
 
- Scenario: The user is presented with error message for empty fields below username textbox
+    Scenario: The user is presented with error message for empty fields below username textbox
     Given The user opens Register page
     When The user clicks "Register" button with all fields empty
-    Then It should display an error "Please fill out this field" 
+    Then It should display an error "Please fill out this field." 
     
     Scenario: The user is presented with error message for empty fields below Password textbox
     Given The user opens Register page
     When The user clicks "Register" button after giving username with other fields empty
-    Then It should throws an error "Please fill out this field" 
+    Then It should throws an error "Please fill out this field." 
     
-     Scenario: The user is presented with error message for empty fields below Password1 textbox
+    Scenario: The user is presented with error message for empty fields below Password1 textbox
     Given The user opens Register page
     When The user clicks "Register" button after giving the username and password with password confirmation field empty
-    Then The user can see the error message "Please fill out this field" 
+    Then The user can see the error message "Please fill out this field." 
     
-	Scenario Outline: The user is presented with an error message
-	Given The user opens Register page
- When The user enters "<username>", "<password>", and "<password1>"
- And  the user clicks the register button
- Then the user should see the error message indicating "<errormessage>"
+	  Scenario Outline: The user is presented with an error message
+	  Given The user opens Register page
+    When The user enters "<username>", "<password>", and "<password1>"
+    And  the user clicks the register button
+    Then the user should see the error message indicating "<errormessage>"
   
  
  Examples:
  | username        | password   | password1  | errormessage                                     |
- | Numpy@123       | Numpy@123  | Numpy@123  | Please enter a valid UserName                   |
- | Numpy@SDET84_1  | Numpy@123  | Numpy@123  | UserName already exists                          |
- | kalasdet118     | Numpy@123  | Numpy@1234 | The two password fields did not mismatch       |
- | kalasdet118     | Numpy      | Numpy      | Password should contain at least 8 characters   |
- | kalasdet118     | 12345678   | 12345678   | Password cannot be entirely numeric             |
- | kalasdet118     | sdet@123   | sdet@123   | Password can't be too similar to your personal information |
- | kalasdet118     | Test@1     | Test@1     | Password can't be a commonly used password      |
- | kala@Sdet118    | NumpyBat@2023| NumpyBat@2023 | User Registered Successfully |
+ | Numpy@123       | Numpy@123  | Numpy@123  | password_mismatch:The two password fields didn’t match.|
+ | Numpy@SDET84_1  | Numpy@123  | Numpy@123  | password_mismatch:The two password fields didn’t match.|
+ | kalasdet118     | Numpy@123  | Numpy@1234 | password_mismatch:The two password fields didn’t match.|
+ | kalasdet118     | Numpy      | Numpy      | password_mismatch:The two password fields didn’t match.|
+ | kalasdet118     | 12345678   | 12345678   | password_mismatch:The two password fields didn’t match.|
+ | kalasdet118     | sdet@123   | sdet@123   | password_mismatch:The two password fields didn’t match.|
+ | kalasdet118     | Test@1     | Test@1     | password_mismatch:The two password fields didn’t match.|
+ | admin4          | Kite@123	  | Kite@123   | New Account Created. You are logged in as admin4 |
