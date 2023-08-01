@@ -20,22 +20,22 @@
 Feature: To test the Queue Data Structure Page
     Scenario: The user is logged into the HomePage
   			Given The user enter login details
-    		When The user enters the username and password and clicks Login button
+    		When 	The user enters the username and password and clicks Login button
     		Then  The user is successfully logged into the homepage
     		
     		
    Scenario: The use navigates to the Queue Data Structure Page
     Given The user is on the home page
-    When the user is able to click on the drop down menu to select Queue
-   	Then the user is navigating to the Queue data structure page
+    When 	the user is able to click on the drop down menu to select Queue
+   	Then 	the user is navigating to the Queue data structure page
     		 
 	
 		Scenario Outline: The user is able to navigate to Queue Page and run code in tryEditor page
 		Given The user is in Queue Data Structure Page
-		When The user click "<Queueoption>"
-		And click Try Here button and enter valid "<PythonCode>" in TryEditor
-		And the user clicks the run button for valid Python code
-		Then the user gets the valid "<output>"
+		When  The user click "<Queueoption>"
+		And   click Try Here button and enter valid "<PythonCode>" in TryEditor
+		And   the user clicks the run button for valid Python code
+		Then  the user gets the valid "<output>"
 		
 	Examples:
  | Queueoption  | PythonCode | output |
@@ -46,10 +46,10 @@ Feature: To test the Queue Data Structure Page
  
  	Scenario Outline: The user is able to navigate to Queue Page and runs invalid code in tryEditor page
 			Given The user is in Queue Data Structure Page
-			When The user clicks "<QueueoptionValue>"
-			And The user clicks Try Here button and enter inValid "<PythonCode>" in TryEditor
-			And The user runs inValid code in the TryEditor by clicking run button.
-			Then the user gets the invalid "<errormessage>"
+			When 	The user clicks "<QueueoptionValue>"
+			And 	The user clicks Try Here button and enter inValid "<PythonCode>" in TryEditor
+			And 	The user runs inValid code in the TryEditor by clicking run button.
+			Then 	the user gets the invalid "<errormessage>"
  		Examples:
  	| QueueoptionValue  													 | PythonCode | errormessage |
  	| Implementation of Queue in Python 					 | HelloPeople   	|NameError: name 'HelloPeople' is not defined on line 1 |

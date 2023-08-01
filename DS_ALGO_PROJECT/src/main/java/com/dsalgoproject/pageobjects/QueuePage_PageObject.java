@@ -40,9 +40,7 @@ public class QueuePage_PageObject {
  	
  	@FindBy (xpath= "//input[@value='Login']")
  	WebElement loginButton;
- 	
- 	@FindBy (xpath="//div[@class='alert alert-primary']")
- 	WebElement loginMsg;
+
 	
 	@FindBy(xpath="//div[@class='dropdown-menu show']")
 	 WebElement DSdropdown;
@@ -83,10 +81,22 @@ public class QueuePage_PageObject {
 		PageFactory.initElements(driver, this);
 	}
     
+ 
     
-    public void HomePage_Queue()
+    public void  Logindetails_Queue() {
+    	
+    	driver.get("https://dsportalapp.herokuapp.com/login");
+    		
+    }
     
-    {
+    public void getQueuePage()
+   	{
+   		driver.get("https://dsportalapp.herokuapp.com/queue/");
+   		
+   	}
+    
+    
+    public void correctusernameandpswd_Queue() {
     	
     	driver.get("https://dsportalapp.herokuapp.com/home");
     	Signin.click();
@@ -96,9 +106,16 @@ public class QueuePage_PageObject {
 		String sPassword= excel.getCellDataNumber(1,1);
 		Username.sendKeys(sUsername);
 		password.sendKeys(sPassword);
-		loginButton.click();
-		message= loginMsg.getText();
-    	title=driver.getTitle();
+		
+    	loginButton.click();
+    		
+    }
+    
+    public void HomePage_Queue()
+    
+    {
+    	
+    	driver.get("https://dsportalapp.herokuapp.com/home");
     
     }
 	
