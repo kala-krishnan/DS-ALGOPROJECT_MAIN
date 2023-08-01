@@ -22,8 +22,7 @@ Feature: To test the Queue Data Structure Page
   			Given The user enter login details
     		When 	The user enters the username and password and clicks Login button
     		Then  The user is successfully logged into the homepage
-    		
-    		
+    		  		
    Scenario: The use navigates to the Queue Data Structure Page
     Given The user is on the home page
     When 	the user is able to click on the drop down menu to select Queue
