@@ -29,7 +29,7 @@ public class LinkedListPage_PageObject {
 		@FindBy(xpath="//form[@id='answer_form']/div/div/div/textarea")
 		private WebElement textAreaWorkSpace;
 		
-		@FindBy(xpath="//button[@type='button']")
+		@FindBy(xpath="//button[text()='Run']")
 		private WebElement RunButton;
 		
 		@FindBy(id="output")
