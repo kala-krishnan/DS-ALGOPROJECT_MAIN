@@ -63,8 +63,8 @@ public class LinkedListPage_StepDefinitions {
 	    linkedListPageObj.getLinkedListPage();
 	}
 
-	@When("The user click {string}")
-	public void the_user_click(String string) {
+	@When("The user click {string} under LinkedList Page")
+	public void the_user_click_under_linked_list_page(String string) {
 		linkedlist_Click = linkedListPageObj.click_LinkedListMenu_LinkForValid(string);
 	    
 	}
@@ -92,8 +92,8 @@ public class LinkedListPage_StepDefinitions {
 		linkedListPageObj.getLinkedListPage();
 	}
 
-	@When("The user clicks {string}")
-	public void the_user_clicks(String string) {
+	@When("The user clicks {string} under Linked List Page")
+	public void the_user_clicks_under_Linked_List_Page (String string) {
 		linkedlist_Click = linkedListPageObj.click_LinkedListMenu_LinkForValid(string);
 	}
 

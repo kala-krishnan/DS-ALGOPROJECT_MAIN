@@ -17,7 +17,7 @@ Then The user should be directed to "Linked List" Page
 
 Scenario Outline: The user is able to navigate to Linked Lists Page and run code in tryEditor page
 Given The user is in Linked List Data Structure Page
-When The user click "<LinkedListoption>"
+When The user click "<LinkedListoption>" under LinkedList Page
 And click Try Here button for Linked List and enter "<PythonCode>" in TryEditor
 And runs code in the TryEditor for Linked List
 Then the user gets the valid "<message>" for Linked List
@@ -34,7 +34,7 @@ Examples:
  
 Scenario Outline: The user is able to navigate to Linked Lists page and run invalid python code in tryEditor page
 Given The user is present in Linked List Data Structure Page
-When The user clicks "<LinkedListOptionValue>"
+When The user clicks "<LinkedListOptionValue>" under Linked List Page
 And click Try Here button in Linked List and enter invalid "<PythonCode>" in TryEditor
 And run code in the TryEditor for Linked List
 Then the user gets the error "<errormessage>" for Linked List
