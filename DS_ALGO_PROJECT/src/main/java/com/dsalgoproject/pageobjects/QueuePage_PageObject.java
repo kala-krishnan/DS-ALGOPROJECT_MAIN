@@ -18,7 +18,6 @@ import org.openqa.selenium.interactions.Actions;
 
 public class QueuePage_PageObject {
 	
-
 	String message = "";
 	String title ="";
 

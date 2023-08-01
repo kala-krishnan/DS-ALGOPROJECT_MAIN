@@ -59,8 +59,7 @@ public class QueuePage_StepDefinitions {
 		String expectedTitle= driver.getTitle();
 
 		Assert.assertEquals(title, expectedTitle);
-		
-		
+			
 	}
 
 	@Given("The user is in Queue Data Structure Page")
