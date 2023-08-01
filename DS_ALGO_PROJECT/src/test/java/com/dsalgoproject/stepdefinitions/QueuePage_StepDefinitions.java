@@ -25,8 +25,7 @@ public class QueuePage_StepDefinitions {
 		 queuePageObj =  new QueuePage_PageObject(driver);
 			
 	}
-	
-	
+		
 	@Given("The user enter login details")
 	public void the_user_enter_login_details() {
 	  

@@ -24,8 +24,6 @@ public class QueuePage_PageObject {
 
 	String errorMessage;
 	
-
-	
 	WebDriver driver;
 	
 	@FindBy(xpath="//a[@href='/login']")

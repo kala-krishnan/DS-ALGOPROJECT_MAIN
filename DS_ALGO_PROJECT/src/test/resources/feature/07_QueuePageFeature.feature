@@ -56,8 +56,5 @@ Feature: To test the Queue Data Structure Page
  	| Implementation using array                   | HelloPeople  	|NameError: name 'HelloPeople' is not defined on line 1 |
  	| Queue Operations														 | HelloPeople 		|NameError: name 'HelloPeople' is not defined on line 1 |
  
-
-
- 
  
  
