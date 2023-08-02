@@ -6,7 +6,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Properties;
 
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class CommonUtils {
 	public static String APP_URL;
@@ -72,6 +75,19 @@ public class CommonUtils {
 					return true;
 				}
 				return false;
+	}
+	public static void enterCodePractice(WebDriver driver,String code, WebElement element) {
+		Actions act = new Actions(driver);
+				act.keyDown(Keys.COMMAND).sendKeys("a").sendKeys(Keys.DELETE).keyUp(Keys.COMMAND).perform();
+		String[] str1 = code.split("\n");
+		for (int i = 0; i < str1.length; i++) {
+			if (str1[i].equalsIgnoreCase("\\b")) {
+				element.sendKeys(Keys.BACK_SPACE);
+			} else {
+				element.sendKeys(str1[i]);
+				element.sendKeys(Keys.RETURN);
+			}
+		}
 	}
 
 }
