@@ -78,7 +78,7 @@ public class CommonUtils {
 	}
 	public static void enterCodePractice(WebDriver driver,String code, WebElement element) {
 		Actions act = new Actions(driver);
-				act.keyDown(Keys.COMMAND).sendKeys("a").sendKeys(Keys.DELETE).keyUp(Keys.COMMAND).perform();
+		act.keyDown(Keys.CONTROL).sendKeys("a").sendKeys(Keys.DELETE).keyUp(Keys.CONTROL).perform();
 		String[] str1 = code.split("\n");
 		for (int i = 0; i < str1.length; i++) {
 			if (str1[i].equalsIgnoreCase("\\b")) {

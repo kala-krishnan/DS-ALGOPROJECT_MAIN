@@ -2,6 +2,8 @@ package com.dsalgoproject.pageobjects;
 
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xdgf.usermodel.section.geometry.MoveTo;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -19,6 +21,7 @@ import com.dsalgoproject.utility.ExcelUtils;
 
 public class DataStructuresPage_PageObject {
 	WebDriver driver;
+	private static final Logger LOG= LogManager.getLogger(DataStructuresPage_PageObject.class);
 	
 	@FindBy(id ="id_username")
  	WebElement Username;
@@ -78,6 +81,7 @@ public class DataStructuresPage_PageObject {
 		password.sendKeys("Kind@123");
 		loginButton.click();
 		successMessage=loginSuccessMessage.getText();
+		LOG.info("The Login is successful:" +successMessage );
  	}
 	public void homePage()
 	{
@@ -134,7 +138,8 @@ public class DataStructuresPage_PageObject {
 		 tryEditor.sendKeys(pythonvalidcode);
 	     runButton.click();
 	     acts.scrollToElement(editorMsg);
-		 printMsg= editorMsg.getText();    
+		 printMsg= editorMsg.getText();  
+		 LOG.info("The message when a valid pytho code is entered is:" +printMsg );
 	}
 	public void invalidPythonCode( String SheetName, int RowNumber)
 	{
@@ -163,8 +168,7 @@ public class DataStructuresPage_PageObject {
 	public String getSuccessMessage()
 	{
 	   
-	   System.out.println("The success message printed is" +printMsg);
-		return printMsg;
+	   	return printMsg;
 	}
 	
     

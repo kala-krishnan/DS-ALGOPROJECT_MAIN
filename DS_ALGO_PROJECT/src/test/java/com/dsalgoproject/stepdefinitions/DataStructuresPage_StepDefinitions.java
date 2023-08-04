@@ -1,5 +1,7 @@
 package com.dsalgoproject.stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -11,6 +13,7 @@ import io.cucumber.java.en.When;
 
 public class DataStructuresPage_StepDefinitions {
 	private WebDriver driver;
+	private static final Logger LOG= LogManager.getLogger(DataStructuresPage_StepDefinitions.class);
 	DataStructuresPage_PageObject  DataStructuresPageObj;
 	
 	public DataStructuresPage_StepDefinitions()
@@ -27,6 +30,7 @@ public class DataStructuresPage_StepDefinitions {
 	@When("The user enter valid username {string} and password {string}")
 	public void the_user_enter_valid_username_and_password(String string, String string2) {
 		DataStructuresPageObj.CorrectUsernameAndPassword();
+		LOG.info("User logged into the homepage entering valid user name and password");
 	}
 
 	@Then("It should display {string}")

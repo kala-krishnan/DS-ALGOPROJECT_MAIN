@@ -1,5 +1,7 @@
 package com.dsalgoproject.stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -17,6 +19,7 @@ public class ArrayPage_StepDefinitions {
 	boolean clickedMenu1;
 	boolean exerciseMenu;
 	String ActualMessage;
+	private static final Logger LOG=LogManager.getLogger(ArrayPage_StepDefinitions.class);
 	public ArrayPage_StepDefinitions()
 	{
 		 driver = Hooks.getDriver();
@@ -43,12 +46,14 @@ public class ArrayPage_StepDefinitions {
 		String expectedTitle = driver.getTitle();
 			
 		Assert.assertEquals(title, expectedTitle);
+		LOG.info("Logged in Successfully" );
 	}
 
 
 	@Given("The user is in Home Page of DSAlGO Project")
 	public void the_user_is_in_home_page_of_dsalgo_project() {
 		arrayPageObj.homePage();
+		LOG.info("The user is in the homepage");
 		
 	}
 
@@ -60,8 +65,7 @@ public class ArrayPage_StepDefinitions {
 	@Then("The user navigates to Array Data Structure Page")
 	public void the_user_navigates_to_array_data_structure_page() {
 		String title = arrayPageObj.getTitle();
-		String expectedTitle = driver.getTitle();
-		
+		String expectedTitle = driver.getTitle();	
 		Assert.assertEquals(title, expectedTitle);
 	}
 	@Given("The user is in Array Data Structure Page")
@@ -85,6 +89,7 @@ public class ArrayPage_StepDefinitions {
 	public void the_user_gets_the_valid_in_arraypage(String string) {
 		ActualMessage = arrayPageObj.getMEssage();
 		Assert.assertEquals(ActualMessage, string);
+		LOG.info("The user gets the valid message: " +string);
 		
 	}
 	@When("The user clicks {string} in Array DataStructure Page")
@@ -103,6 +108,7 @@ public class ArrayPage_StepDefinitions {
 	public void the_user_will_see_the_valid_in_arraypage(String string) {
 		ActualMessage = arrayPageObj.getJavaScriptMessage();
 		Assert.assertEquals(ActualMessage, string);
+		LOG.info("The user gets the error message for invalid python code: " +string);
 		
 	}
 	@Given("The user is in Arrays in Python Page")
@@ -121,6 +127,7 @@ public class ArrayPage_StepDefinitions {
 		String expectedTitle = driver.getTitle();
 		
 		Assert.assertEquals(title, expectedTitle);
+		
 	}
 
 	@Given("The user is in Practice Page")
@@ -144,6 +151,7 @@ public class ArrayPage_StepDefinitions {
 	public void the_user_should_be_presented_with_run_result_in_practice_page(String string) {
 		ActualMessage = arrayPageObj.getMeesageinPractice();
 		Assert.assertEquals(ActualMessage, string);
+		LOG.info("The user gets the message for valid python code in practice page: " +string);
 	}
 	
 //	@When("the user clicks on submit button in Practice Page")
@@ -178,6 +186,7 @@ public class ArrayPage_StepDefinitions {
 	public void the_user_should_be_presented_with_run_result_in_practice_page_to_check_invalid_code_for_each_examples(String string) {
 		ActualMessage = arrayPageObj.geterrMeesageinPractice();
 		Assert.assertEquals(ActualMessage, string);
+		LOG.info("The user gets the message for invalid python code in practice page: " +string);
 	}
 
 //	@When("the user clicks on submit button in Practice Page to check invalid code for each examples")
