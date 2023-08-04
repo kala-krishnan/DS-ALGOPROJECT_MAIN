@@ -1,5 +1,7 @@
 package com.dsalgoproject.stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -14,6 +16,7 @@ import io.cucumber.java.en.When;
 public class LoginPage_StepDefinitions {
 	private WebDriver driver;
 	LoginPage_PageObject loginPageObj;
+	private static final Logger LOG= LogManager.getLogger(LoginPage_StepDefinitions.class);
 	public LoginPage_StepDefinitions()
 	{
 		driver = Hooks.getDriver();
@@ -24,6 +27,7 @@ public class LoginPage_StepDefinitions {
 	@Given("The user opens the Login page")
 	public void the_user_opens_the_login_page() {
 		loginPageObj.Login();
+		
 	}
 
 	@When("The user clicks on the Login page with incorrect username and password")
@@ -60,6 +64,7 @@ public class LoginPage_StepDefinitions {
 		String message = loginPageObj.getMessage();
 		 System.out.println("message" +message);
 		 Assert.assertEquals(message,string);
+		 LOG.info("Logout message is shown" +message);
 	   
 	}
 }

@@ -1,5 +1,7 @@
 package com.dsalgoproject.stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -13,6 +15,7 @@ import io.cucumber.java.en.When;
 public class RegisterPage_StepDefinitions {
 	private WebDriver driver;
 	RegisterPage_PageObject registerPageObj;
+	private final static Logger LOG= LogManager.getLogger(RegisterPage_StepDefinitions.class);
 	
 	public RegisterPage_StepDefinitions()
 	{
@@ -59,6 +62,7 @@ public class RegisterPage_StepDefinitions {
 		
 		String actualErrorMessage = registerPageObj.pwd2GetAttribute();
 		Assert.assertEquals(actualErrorMessage, string);
+		LOG.info("Error is printed");
 	}
 
 	@When("The user enters {string}, {string}, and {string}")

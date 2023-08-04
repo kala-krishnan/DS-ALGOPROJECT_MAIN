@@ -1,5 +1,7 @@
 package com.dsalgoproject.stepdefinitions;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -12,14 +14,16 @@ import io.cucumber.java.en.When;
 
 public class LinkedListPage_StepDefinitions {
 	private WebDriver driver;
+	private static final Logger LOG = LogManager.getLogger(LinkedListPage_StepDefinitions.class);
 	LinkedListPage_PageObject linkedListPageObj;
 	boolean linkedlist_Click;
 	String title;
 	String actualMessage;
-	
+
 	public LinkedListPage_StepDefinitions() {
 		 driver = Hooks.getDriver();
-		 linkedListPageObj =  new LinkedListPage_PageObject(driver);		
+		 linkedListPageObj =  new LinkedListPage_PageObject(driver);
+		 LOG.info("driver is instantiated");
 	}
 	@Given("The user logs into login page to enter details")
 	public void the_user_logs_into_login_page_to_enter_details() {
@@ -33,7 +37,9 @@ public class LinkedListPage_StepDefinitions {
 
 	@When("the user presses Login Button to successfully login")
 	public void the_user_presses_login_button_to_successfully_login() {
+		
 	    linkedListPageObj.clickLoginButton();
+	    LOG.info("the linked list button is clicked");
 	}
 	@Then("The user is successfully logged into the homepage test for linked list")
 	public void the_user_is_successfully_logged_into_the_homepage_test_for_linked_list() {
@@ -78,6 +84,7 @@ public class LinkedListPage_StepDefinitions {
 	@When("runs code in the TryEditor for Linked List")
 	public void runs_code_in_the_try_editor_for_linked_list() {
 	   linkedListPageObj.click_RunButton_ForValid_inLinkedList();
+	   LOG.info("The try editor is tested");
 	}
 
 	@Then("the user gets the valid {string} for Linked List")

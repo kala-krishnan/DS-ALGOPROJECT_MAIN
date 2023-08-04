@@ -2,6 +2,8 @@ package com.dsalgoproject.pageobjects;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,6 +17,7 @@ import com.dsalgoproject.utility.ExcelUtils;
 public class ArrayPage_PageObject {
 	WebDriver driver;
 	
+	private static final Logger LOG= LogManager.getLogger(ArrayPage_PageObject.class);
 	@FindBy(linkText = "Data Structures")
 	private WebElement DataStrIntroGetStarted;
 	
@@ -53,7 +56,7 @@ public class ArrayPage_PageObject {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		act = new Actions(driver);
-	}
+			}
 	
 	
 	public void loginPage()
@@ -81,6 +84,7 @@ public class ArrayPage_PageObject {
 		DataStrIntroGetStarted.click();
 		Thread.sleep(1000);
 		driver.findElement(By.linkText("Arrays")).click();
+		LOG.info("Array is clicked");
 		title = driver.getTitle();
 	}
 	
@@ -106,6 +110,7 @@ public class ArrayPage_PageObject {
 			act.moveToElement(tryHereButton);
 			tryHereButton.click();
 			textAreaWorkSpace.sendKeys(pythonCode);
+			LOG.info("Valid Python Code is sent" + pythonCode);
 		}
 	}
 	public void click_RunButton_ForValid_inArray()
@@ -128,6 +133,8 @@ public class ArrayPage_PageObject {
 			act.moveToElement(tryHereButton);
 			tryHereButton.click();
 			textAreaWorkSpace.sendKeys(invalidPythonCode);
+			LOG.info("InValid Python Code is sent" + invalidPythonCode);
+			
 		}
 	}
 	public void click_runButton_ForInvalid_InArray()
@@ -166,6 +173,7 @@ public class ArrayPage_PageObject {
 		String exerecisePythonCode= excel.getCellDataString(RowNumber,0);
 		if(exerciseMenu)
 		{
+			
 			CommonUtils.enterCodePractice(driver,exerecisePythonCode,textAreaWorkSpace);
 		}
 	}
