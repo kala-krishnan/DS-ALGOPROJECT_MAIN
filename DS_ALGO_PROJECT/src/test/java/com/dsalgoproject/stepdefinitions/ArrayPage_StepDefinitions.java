@@ -19,6 +19,7 @@ public class ArrayPage_StepDefinitions {
 	boolean clickedMenu1;
 	boolean exerciseMenu;
 	String ActualMessage;
+	String submitMessage;
 	private static final Logger LOG=LogManager.getLogger(ArrayPage_StepDefinitions.class);
 	public ArrayPage_StepDefinitions()
 	{
@@ -119,17 +120,13 @@ public class ArrayPage_StepDefinitions {
 	public void the_user_clicks_practice_questions_in_array_page() {
 		arrayPageObj.clickPracticePage();
 	}
-	
-
 	@Then("the user navigates to Array Practice Page")
 	public void the_user_navigates_to_array_practice_page() {
 		String title = arrayPageObj.getTitle();
 		String expectedTitle = driver.getTitle();
 		
 		Assert.assertEquals(title, expectedTitle);
-		
 	}
-
 	@Given("The user is in Practice Page")
 	public void the_user_is_in_practice_page() {
 		arrayPageObj.goToPracticePage();
@@ -154,15 +151,16 @@ public class ArrayPage_StepDefinitions {
 		LOG.info("The user gets the message for valid python code in practice page: " +string);
 	}
 	
-//	@When("the user clicks on submit button in Practice Page")
-//	public void the_user_clicks_on_submit_button_in_practice_page() {
-//		arrayPageObj.click_Submit_ForExerciseCode();
-//	}
-//	@Then("the user should be presented with successful submission message {string} in Practice Page")
-//	public void the_user_should_be_presented_with_successful_submission_message_in_practice_page(String string) {
-//		ActualMessage = arrayPageObj.getMeesageinPractice();
-//		Assert.assertEquals(ActualMessage, string);
-//	}
+	@When("the user clicks submit button in Practice page")
+	public void the_user_clicks_submit_button_in_practice_page() {
+		submitMessage = arrayPageObj.click_Submit_ForExerciseCode();
+	}
+
+	@Then("the user sees the success message")
+	public void the_user_sees_the_success_message() {
+		LOG.info("The user gets the Submit message for valid python code in practice page: " +submitMessage);
+	}
+
 	@Given("The user is in Practice Page to check invalid code for each examples")
 	public void the_user_is_in_practice_page_to_check_invalid_code_for_each_examples() {
 		arrayPageObj.goToPracticePage();
@@ -188,20 +186,15 @@ public class ArrayPage_StepDefinitions {
 		Assert.assertEquals(ActualMessage, string);
 		LOG.info("The user gets the message for invalid python code in practice page: " +string);
 	}
-
-//	@When("the user clicks on submit button in Practice Page to check invalid code for each examples")
-//	public void the_user_clicks_on_submit_button_in_practice_page_to_check_invalid_code_for_each_examples() {
-//		arrayPageObj.click_Submit_ForExerciseCode();
-//	}
-//
-//	@Then("the user should be presented with successful submission message {string} in Practice Page to check invalid code for each examples")
-//	public void the_user_should_be_presented_with_successful_submission_message_in_practice_page_to_check_invalid_code_for_each_examples(String string) {
-//		ActualMessage = arrayPageObj.geterrMeesageinPractice();
-//		Assert.assertEquals(ActualMessage, string);
-//	}
-
-
-
+	@When("the user clicks submit button for invalid python code in Practice page")
+	public void the_user_clicks_submit_button_for_invalid_python_code_in_practice_page() {
+		submitMessage = arrayPageObj.click_Submit_ForinValidExerciseCode();
+	}
+	@Then("the user sees the error message")
+	public void the_user_sees_the_error_message() {
+		LOG.info("The user gets the Submit message for invalid python code in practice page: " +submitMessage);
+	}
+	
 	
 
 

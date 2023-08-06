@@ -42,12 +42,18 @@ Feature: Feature file to test register
   
  
  Examples:
- | username        | password   | password1  | errormessage                                     |
- | Numpy@123       | Numpy@123  | Numpy@123  | password_mismatch:The two password fields didn’t match.|
- | Numpy@SDET84_1  | Numpy@123  | Numpy@123  | password_mismatch:The two password fields didn’t match.|
- | kalasdet118     | Numpy@123  | Numpy@1234 | password_mismatch:The two password fields didn’t match.|
- | kalasdet118     | Numpy      | Numpy      | password_mismatch:The two password fields didn’t match.|
- | kalasdet118     | 12345678   | 12345678   | password_mismatch:The two password fields didn’t match.|
- | kalasdet118     | sdet@123   | sdet@123   | password_mismatch:The two password fields didn’t match.|
- | kalasdet118     | Test@1     | Test@1     | password_mismatch:The two password fields didn’t match.|
- | admin4          | Kite@123	  | Kite@123   | New Account Created. You are logged in as admin4 |
+ | username        | password   | password1  | errormessage                                                      |
+ | Numpy@123       | Numpy@123  | Numpy@123  | Please enter valid username                                       |
+ | Numpy@SDET84_1  | Numpy@123  | Numpy@123  | Username already exists                                           |
+ | kalasdet118     | Numpy@123  | Numpy@1234 | password_mismatch:The two password fields didn’t match.           |
+ | kalasdet118     | Numpy      | Numpy      | Password should contain at least 8 characters                     |
+ | kalasdet118     | 12345678   | 12345678   | Password cannot be entirely numeric                               |                              
+ | kalasdet118     | sdet@123   | sdet@123   | Password cannot be too similar to your other personal information |
+ | kalasdet118     | Test@1     | Test@1     | Password cannot be commonly used password                         |              
+
+ 		Scenario: The user is presented with success message when the user giving correct username and password
+    Given The user opens Register page
+    When The user clicks "Register" button after giving correct "coolcucumberteam","Kind@123" and "Kind@123" 
+    And the user clicks the register button
+    Then It should display the success message "New Account Created. You are logged in as coolcucumberteam" 
+ 	

@@ -72,6 +72,8 @@ Examples:
  And the user enters validCode from "<sheetName>" and <RowNumber> in the Array Practice Page Textarea
  And the user clicks Run button in Practice Page
  Then the user should be presented with Run result "<message>" in Practice Page
+ When the user clicks submit button in Practice page
+ Then the user sees the success message
  Examples:
  | exerciselink                             |   sheetName       |  RowNumber  | message       |
  | Search the array                         | DataStructures    |   1         | hello World   |
@@ -85,6 +87,8 @@ Examples:
  And the user enters invalid Code from "<sheetName>" and <RowNumber> in the Array Practice Page Textarea
  And the user clicks Run button in Practice Page to check invalid code for each examples
  Then the user should be presented with Run result "<errormessage>" in Practice Page to check invalid code for each examples
+  When the user clicks submit button for invalid python code in Practice page
+ Then the user sees the error message
 
  Examples:
  | exerciselink                             |   sheetName       |  RowNumber  |         errormessage                     |

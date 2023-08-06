@@ -183,11 +183,20 @@ public class ArrayPage_PageObject {
 		RunButton.click();
 		
 	}
-//	public void click_Submit_ForExerciseCode()
-//	{
-//		submitButton.click();
-//		message = "Submission Success";
-//	}
+	public String click_Submit_ForExerciseCode()
+	{
+		submitButton.click();
+		message = "Submission Success";
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		return message;
+	}
+	public String click_Submit_ForinValidExerciseCode()
+	{
+		submitButton.click();
+		message = "Submission Error";
+		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		return message;
+	}
 	public String getJavaScriptMessage()
 	{
 		return javaScriptMessage;
@@ -204,14 +213,14 @@ public class ArrayPage_PageObject {
 	public String getMeesageinPractice()
 	{
 		messageinPractice = output.getText();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		
 		return messageinPractice;
 	}
 	public String geterrMeesageinPractice()
 	{
 		errmessageinPractice = driver.switchTo().alert().getText();
 		driver.switchTo().alert().accept();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		
 		return errmessageinPractice;
 	}
 }

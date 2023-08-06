@@ -82,5 +82,15 @@ public class RegisterPage_StepDefinitions {
 		Assert.assertEquals(actualErrorMessage,string );
 		
 	}
+	@When("The user clicks {string} button after giving correct {string},{string} and {string}")
+	public void the_user_clicks_button_after_giving_correct_and(String string, String string2, String string3, String string4) {
+		registerPageObj.clickafterGivingInvalidCredentials(string2, string3, string4);
+	}
+
+	@Then("It should display the success message {string}")
+	public void it_should_display_the_success_message(String string) {
+		String actualErrorMessage = registerPageObj.getSuccessMessage();
+		Assert.assertEquals(actualErrorMessage,string );
+	}
 
 }
