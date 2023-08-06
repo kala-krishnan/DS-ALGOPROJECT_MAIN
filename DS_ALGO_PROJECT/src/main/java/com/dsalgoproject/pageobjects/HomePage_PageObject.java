@@ -51,7 +51,10 @@ public class HomePage_PageObject {
 	private WebElement graphGetStartedButton;
 
 	String errorMessage;
-
+	String applicationURL = CommonUtils.getApplicationPage();
+	String homePageURL = CommonUtils.getHomePage();
+	String loginPageURL = CommonUtils.getLoginPage();
+	String registerPageURL = CommonUtils.getRegisterPage();
 	
 	
 	public HomePage_PageObject(WebDriver driver) {
@@ -60,7 +63,7 @@ public class HomePage_PageObject {
 	}
 
 	public void homePageLogin() {
-		driver.get("https://dsportalapp.herokuapp.com/");
+		driver.get(applicationURL);
 		LOG.info("DS ALGO Page Opened");
 	}
 
@@ -71,7 +74,7 @@ public class HomePage_PageObject {
 	}
 
 	public void homePage() {
-		driver.get("https://dsportalapp.herokuapp.com/home");
+		driver.get(homePageURL);
 
 	}
 
@@ -129,12 +132,12 @@ public class HomePage_PageObject {
 	
 	public void goToSignPage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/login");
+		driver.get(loginPageURL);
 		errorMessage = driver.getTitle();
 	}
 	public void goToRegisterPage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/register");
+		driver.get(registerPageURL);
 		errorMessage = driver.getTitle();
 	}
 	public String getErrormessage() {

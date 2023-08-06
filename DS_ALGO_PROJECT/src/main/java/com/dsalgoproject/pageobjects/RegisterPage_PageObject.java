@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.dsalgoproject.utility.CommonUtils;
+
 public class RegisterPage_PageObject {
 WebDriver driver;
 	
@@ -22,6 +24,7 @@ WebDriver driver;
 	String successMessage="";
 	String errorMessage ="";
 	String validationMsg="";
+	String registerPageURL = CommonUtils.getRegisterPage();
 	
 	public RegisterPage_PageObject(WebDriver driver)
 	{
@@ -31,7 +34,7 @@ WebDriver driver;
 	
 	public void registerLogin()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/register");
+		driver.get(registerPageURL);
 	}
 	
 	public void clickWithoutGivingUserNameAndPassword()
