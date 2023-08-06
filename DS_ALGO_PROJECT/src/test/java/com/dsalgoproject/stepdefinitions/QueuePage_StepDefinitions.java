@@ -37,6 +37,14 @@ public class QueuePage_StepDefinitions {
 	
 		queuePageObj.correctusernameandpswd_Queue();
 	}
+	
+	@Then("The user is logged into the homepage")
+	public void the_user_is_logged_into_the_homepage() {
+		title = queuePageObj.getTitle();
+		String expectedTitle = driver.getTitle();
+		Assert.assertEquals(title, expectedTitle);
+	}
+
 
 	@Given("The user is on the home page")
 	public void the_user_is_on_the_home_page() {
@@ -68,8 +76,8 @@ public class QueuePage_StepDefinitions {
 		queuePageObj.getQueuePage();
 	}
 
-	@When("The user click {string}")
-	public void the_user_click(String string) {
+	@When("The user click {string} in Queue Data Structure Page")
+	public void the_user_click_in_queue_data_structure_page(String string) {
 	  
 		queue_click= queuePageObj.click_QueueMenu_LinkForValid(string);
 	}
@@ -95,9 +103,14 @@ public class QueuePage_StepDefinitions {
 
 		   Assert.assertEquals(actualMessage, string);
 	}
-
-	@When("The user clicks {string}")
-	public void the_user_clicks(String string) {
+	
+	@Given("The user is in Queue Data Structures Page")
+	public void the_user_is_in_queue_data_structures_page() {
+		queuePageObj.getQueuePage();
+	}
+	
+	@When("The user clicks {string} in Queue Data Structure Page")
+	public void the_user_clicks_in_queue_data_structure_page(String string) {
 		
 		 queue_click=queuePageObj.click_QueueMenu_LinkForValid(string);
 	}

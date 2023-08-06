@@ -25,6 +25,7 @@ public class QueuePage_PageObject {
 	
 	WebDriver driver;
 	
+	
 	@FindBy(xpath="//a[@href='/login']")
 	WebElement Signin;
 	
@@ -52,33 +53,22 @@ public class QueuePage_PageObject {
     
    @FindBy(id="output")
    WebElement output;
-   
-   
-  // driver.findElement(By.xpath("//form[@id='answer_form']/div/div/div/textarea")).sendKeys("print 'hello'");
-	// Thread.sleep(3000);
- //   @FindBy(xpath="//a[@href='implementation-lists']")
-//    WebElement implementationofQueue;
-    
-    
+     
    @FindBy(xpath="//a[@href='/tryEditor']") 
    WebElement tryHereButton;
    
    @FindBy(xpath="//form[@id='answer_form']/div/div/div/textarea")
    WebElement  textAreaWorkSpace;
     
-    
-    @FindBy(xpath="//button[text()='Run']")
-    WebElement runButton;
-    
-    
+   @FindBy(xpath="//button[text()='Run']")
+   WebElement runButton;
+      
     public QueuePage_PageObject(WebDriver driver)
 	{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-    
- 
-    
+   
     public void  Logindetails_Queue() {
     	
     	driver.get("https://dsportalapp.herokuapp.com/login");
@@ -102,8 +92,8 @@ public class QueuePage_PageObject {
 		String sPassword= excel.getCellDataNumber(1,1);
 		Username.sendKeys(sUsername);
 		password.sendKeys(sPassword);
-		
-    	loginButton.click();
+		loginButton.click();
+		title = driver.getTitle();
     		
     }
     

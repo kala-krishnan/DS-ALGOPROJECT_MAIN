@@ -41,17 +41,16 @@ public class TreePage_StepDefintions {
 
 	@Then("the user goes to the home page of the project")
 	public void the_user_goes_to_the_home_page_of_the_project() {
-
-		treePageObj.homePage_tree();
+		title = treePageObj.getTitle();
+		String expectedTitle = driver.getTitle();
+		Assert.assertEquals(title, expectedTitle);
 	}
 
 	@Given("The user in the homepage of DS Tree dropdown page")
 	public void the_user_in_the_homepage_of_ds_tree_dropdown_page() {
-
-		title = treePageObj.getTitle_tree();
-		String expectedTitle = driver.getTitle();
-		Assert.assertEquals(title, expectedTitle);
+		treePageObj.homePage_tree();
 	}
+		
 
 	@When("The user selects Tree item from the dropdown menu")
 	public void the_user_selects_tree_item_from_the_dropdown_menu() throws InterruptedException {
@@ -62,7 +61,7 @@ public class TreePage_StepDefintions {
 	@Then("the user navigates to the Tree Data Structure page")
 	public void the_user_navigates_to_the_tree_data_structure_page() {
 
-		title = treePageObj.getTitle_tree();
+		title = treePageObj.getTitle();
 
 		String expectedTitle = driver.getTitle();
 
