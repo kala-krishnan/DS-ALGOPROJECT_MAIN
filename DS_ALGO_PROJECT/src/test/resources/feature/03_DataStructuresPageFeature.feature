@@ -20,7 +20,7 @@
 	Feature: User is logged into DS-Algo page and checking the DataStructures module
 		Scenario: User is Logged into DS-Algo page
     Given The user is on signon page of the DS-Algo page
-    When 	The user enter valid username "Purnima1345@gmail.com" and password "Kind@123"
+    When 	The user enter valid username "coolcukes" and password "Selenium@123"
     Then  It should display "You are logged in"
     
     Scenario: User is able to navigate to Data Structures introduction page

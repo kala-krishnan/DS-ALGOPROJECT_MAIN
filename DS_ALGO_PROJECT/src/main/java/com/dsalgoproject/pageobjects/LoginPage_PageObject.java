@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import com.dsalgoproject.utility.CommonUtils;
 import com.dsalgoproject.utility.ExcelUtils;
 
 
@@ -27,7 +29,8 @@ public class LoginPage_PageObject {
  	
  	@FindBy(xpath="//a[@href='/logout']") 
  	 WebElement SignoutButton;
-
+ 	String loginPageURL = CommonUtils.getLoginPage();
+ 	String excelURL = CommonUtils.getexcelfilepath();
 
 	public LoginPage_PageObject(WebDriver driver)
 	{
@@ -36,7 +39,7 @@ public class LoginPage_PageObject {
 	}
 	public void Login()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/login");
+		driver.get(loginPageURL);
 	}
 	public void IncorrectUserNameAndPassword()
 	{
@@ -52,7 +55,7 @@ public class LoginPage_PageObject {
  	{
  
 		String path=System.getProperty("user.dir");
-		ExcelUtils excel= new ExcelUtils(path+"//src//test//resources//ExcelData//ExcelData.xlsx","Login");
+		ExcelUtils excel= new ExcelUtils(path+excelURL,"Login");
 		String sUsername= excel.getCellDataString(1,0);
 		String sPassword= excel.getCellDataNumber(1,1);
 		Username.sendKeys(sUsername);

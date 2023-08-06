@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.dsalgoproject.utility.CommonUtils;
 import com.dsalgoproject.utility.ExcelUtils;
 
 public class DataStructuresPage_PageObject {
@@ -64,6 +65,12 @@ public class DataStructuresPage_PageObject {
  	String title="";
  	
  	String successMessage="";
+ 	String loginPageURL = CommonUtils.getLoginPage();
+ 	String homePageURL = CommonUtils.getHomePage();
+ 	String dataStructurePage= CommonUtils.getDSPageUrl();
+ 	String dataStructuresTimeComp=CommonUtils.getDSPageTimeCompUrl();
+ 	String tryEditorPage=CommonUtils.getTryEditor();
+	String excelURL = CommonUtils.getexcelfilepath();
 
 	public DataStructuresPage_PageObject (WebDriver driver)
 	{
@@ -73,24 +80,24 @@ public class DataStructuresPage_PageObject {
 	}
 	public void Login()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/login");
+		driver.get(loginPageURL);
 	}
 	public void CorrectUsernameAndPassword()
  	{
-		Username.sendKeys("Purnima1345@gmail.com");
-		password.sendKeys("Kind@123");
+		Username.sendKeys("coolcukes");
+		password.sendKeys("Selenium@123");
 		loginButton.click();
 		successMessage=loginSuccessMessage.getText();
 		LOG.info("The Login is successful:" +successMessage );
  	}
 	public void homePage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/home");
+		driver.get(homePageURL);
 	}
 	
 	public void dataStructuresIntroPage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/data-structures-introduction/");
+		driver.get(dataStructurePage);
 	}
 	
 	public void clickTimeComplexity()
@@ -104,12 +111,12 @@ public class DataStructuresPage_PageObject {
 	
 	public void timeComplexityPage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/data-structures-introduction/time-complexity/");
+		driver.get(dataStructuresTimeComp);
 	}
 	
 	public void tryHereEditorPage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/tryEditor");
+		driver.get(tryEditorPage);
 	}
 	
 	public void clickTryHere() {
@@ -126,14 +133,14 @@ public class DataStructuresPage_PageObject {
 	
 	public void clickRunTryEditor()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/tryEditor");
+		driver.get(tryEditorPage);
 	}
 	
 	public void getPythonCode(String SheetName, int RowNumber) 
 	{
 			
 		  path=System.getProperty("user.dir");
-		  excel= new ExcelUtils(path+"//src//test//resources//ExcelData//ExcelData.xlsx",SheetName);
+		  excel= new ExcelUtils(path+excelURL,SheetName);
 		  pythonvalidcode= excel.getCellDataString(RowNumber,0);
 		 tryEditor.sendKeys(pythonvalidcode);
 	     runButton.click();
@@ -144,14 +151,14 @@ public class DataStructuresPage_PageObject {
 	public void invalidPythonCode( String SheetName, int RowNumber)
 	{
 		 path=System.getProperty("user.dir");
-		 excel= new ExcelUtils(path+"//src//test//resources//ExcelData//ExcelData.xlsx",SheetName);
+		 excel= new ExcelUtils(path+excelURL,SheetName);
 		  pythonvalidcode= excel.getCellDataString(RowNumber,0);
 		 tryEditor.sendKeys(pythonvalidcode);
 	     runButton.click();
 	     printMsg=driver.switchTo().alert().getText();
 		 System.out.println("The error message is "+driver.switchTo().alert().getText());
 	     driver.switchTo().alert().accept(); 
-	     driver.navigate().to("https://dsportalapp.herokuapp.com/home");
+	     driver.navigate().to(homePageURL);
 	}
 	
 	
@@ -167,7 +174,6 @@ public class DataStructuresPage_PageObject {
 	
 	public String getSuccessMessage()
 	{
-	   
 	   	return printMsg;
 	}
 	
