@@ -74,6 +74,7 @@ public class TreePage_PageObject {
 		loginButton.click();
 		message= loginMsg.getText();
 		title=driver.getTitle();
+		
    }
    public void homePage_tree()
 	{
@@ -112,7 +113,7 @@ public class TreePage_PageObject {
 		{
 			runButton.click();
 		}
-		public String getTitle_tree()
+		public String getTitle()
 		{
 			return title;
 		}

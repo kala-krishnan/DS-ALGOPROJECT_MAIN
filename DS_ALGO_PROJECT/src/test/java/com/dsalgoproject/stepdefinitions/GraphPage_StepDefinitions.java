@@ -65,8 +65,8 @@ public class GraphPage_StepDefinitions {
 		graphPageObj.getGraphPage();
 	}
 
-	@When("the user clicks {string} in Grpah Data Structure page")
-	public void the_user_clicks_in_grpah_data_structure_page(String string) {
+	@When("the user clicks {string} in Graph Data Structure page")
+	public void the_user_clicks_in_graph_data_structure_page(String string) {
 		 graph_Click = graphPageObj.click_GraphMenu_LinkForValid(string);
 	}
 
@@ -91,8 +91,8 @@ public class GraphPage_StepDefinitions {
 		graphPageObj.getGraphPage();
 	}
 
-	@When("the user click {string} in Grpah Data Structure page")
-	public void the_user_click_in_grpah_data_structure_page(String string) {
+	@When("the user click {string} in Graph Data Structure page")
+	public void the_user_click_in_graph_data_structure_page(String string) {
 		 graph_Click = graphPageObj.click_GraphMenu_LinkForValid(string);
 		 }
 

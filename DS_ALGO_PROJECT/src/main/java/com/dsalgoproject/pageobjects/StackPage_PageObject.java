@@ -92,6 +92,7 @@ public class StackPage_PageObject {
 		DataStrIntroGetStarted.click();
 		Thread.sleep(1000);
 		driver.findElement(By.linkText("Stack")).click();
+		title = driver.getTitle();
 		
 	}
 	
