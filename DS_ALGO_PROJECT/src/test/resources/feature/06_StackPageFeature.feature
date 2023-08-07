@@ -18,13 +18,7 @@
 #Sample Feature Definition Template
 @tag
 Feature: Testing the Stack Page
-
-  Scenario: User logs in to DS Algo portal successfully
-    Given The user is on the Signin page of DS Algo portal
-    When The user enters valid "Numpysdet84" and "sdet84batch"
-    Then The user is successfully login to the homepage
-
-  Scenario: User navigates to "Stack" Page
+ Scenario: User navigates to "Stack" Page
     Given The user is on the home page after being logged in
     When The user selects the stack item from the drop-down menu
     Then The user should be directed to the "Stack" Page

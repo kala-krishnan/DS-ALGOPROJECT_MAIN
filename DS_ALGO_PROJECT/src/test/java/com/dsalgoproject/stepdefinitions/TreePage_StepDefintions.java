@@ -21,37 +21,11 @@ public class TreePage_StepDefintions {
 		treePageObj = new TreePage_PageObject(driver);
 	}
 
-	@Given("The user is in the login page of DS Algo")
-	public void the_user_is_in_the_login_page_of_ds_algo() {
-
-		treePageObj.loginPage_tree();
-	}
-
-	@When("the user gives the username and password from the excel sheet")
-	public void the_user_gives_the_username_and_password_from_the_excel_sheet() {
-
-		treePageObj.logindetails_tree();
-	}
-
-	@When("then clicks the login button for logging into the page")
-	public void then_clicks_the_login_button_for_logging_into_the_page() {
-
-		treePageObj.clickLoginButton_tree();
-	}
-
-	@Then("the user goes to the home page of the project")
-	public void the_user_goes_to_the_home_page_of_the_project() {
-		title = treePageObj.getTitle();
-		String expectedTitle = driver.getTitle();
-		Assert.assertEquals(title, expectedTitle);
-	}
-
 	@Given("The user in the homepage of DS Tree dropdown page")
 	public void the_user_in_the_homepage_of_ds_tree_dropdown_page() {
 		treePageObj.homePage_tree();
 	}
 		
-
 	@When("The user selects Tree item from the dropdown menu")
 	public void the_user_selects_tree_item_from_the_dropdown_menu() throws InterruptedException {
 
@@ -60,11 +34,8 @@ public class TreePage_StepDefintions {
 
 	@Then("the user navigates to the Tree Data Structure page")
 	public void the_user_navigates_to_the_tree_data_structure_page() {
-
 		title = treePageObj.getTitle();
-
 		String expectedTitle = driver.getTitle();
-
 		Assert.assertEquals(title, expectedTitle);
 	}
 

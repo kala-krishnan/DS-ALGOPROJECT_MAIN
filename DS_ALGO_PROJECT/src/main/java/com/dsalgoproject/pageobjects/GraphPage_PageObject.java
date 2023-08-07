@@ -1,7 +1,6 @@
 package com.dsalgoproject.pageobjects;
 
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -10,10 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.dsalgoproject.utility.CommonUtils;
-
-
 
 public class GraphPage_PageObject {
 	
@@ -41,33 +37,18 @@ public class GraphPage_PageObject {
 	private WebElement output;
 	
 	String errorMessage;
-	
 	String message;
+	String homePageURL = CommonUtils.getHomePage();
+	String graphPageURL = CommonUtils.getGraphUrl();
 	
 	public GraphPage_PageObject(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		act = new Actions(driver);
 	}
-	
-	public void loginPage()
-	{
-		driver.get("https://dsportalapp.herokuapp.com/login");
-	}
-	public void enterUserNamePassword(String userName ,String passWord)
-	{
-		driver.findElement(By.id("id_username")).sendKeys(userName);
-		driver.findElement(By.id("id_password")).sendKeys(passWord);
-		
-	}
-	public void clickLoginButton()
-	{
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
-		title = driver.getTitle();
-	}
 	public void homePage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/home");
+		driver.get(homePageURL);
 	}
 	public void selectGraphOption() throws InterruptedException
 	{
@@ -80,7 +61,7 @@ public class GraphPage_PageObject {
 	
 	public void getGraphPage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/graph/");
+		driver.get(graphPageURL);
 		
 	}
 	public boolean click_GraphMenu_LinkForValid(String linkNameFromFeature)
@@ -112,7 +93,7 @@ public class GraphPage_PageObject {
 	public String getMessage()
 	{
 		message = output.getText();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/graph/");
+		driver.navigate().to(graphPageURL);
 		LOG.info("The success message is:" +message);
 		return message;
 		
@@ -122,7 +103,7 @@ public class GraphPage_PageObject {
 	{
 		errorMessage = driver.switchTo().alert().getText();
 		driver.switchTo().alert().accept();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/home");
+		driver.navigate().to(homePageURL);
 		LOG.info("The error message is:" +errorMessage);
 		return errorMessage;
 	}
