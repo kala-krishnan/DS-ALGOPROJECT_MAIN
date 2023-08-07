@@ -93,6 +93,22 @@ public class GraphPage_StepDefinitions {
 		
 	}
 
+	@Given("The user is in homePage and trying to click Logout")
+	public void the_user_is_in_home_page_and_trying_to_click_logout() {
+		graphPageObj.homePage();
+	}
+
+	@When("the user clicks Logout in DS-Algo After testing the scenarios")
+	public void the_user_clicks_logout_in_ds_algo_after_testing_the_scenarios() {
+		graphPageObj.click_Logout();
+	}
+	
+	@Then("the user navigates to the application url page")
+	public void the_user_navigates_to_the_application_url_page() {
+		title = graphPageObj.getTitle();
+		String expectedTitle = driver.getTitle();
+		Assert.assertEquals(title, expectedTitle);
+	}
 
 
 

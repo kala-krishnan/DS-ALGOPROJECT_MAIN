@@ -36,6 +36,9 @@ public class GraphPage_PageObject {
 	@FindBy(id="output")
 	private WebElement output;
 	
+	@FindBy(xpath="//a[@href='/logout']")
+	private WebElement logoutButton;
+	
 	String errorMessage;
 	String message;
 	String homePageURL = CommonUtils.getHomePage();
@@ -85,6 +88,13 @@ public class GraphPage_PageObject {
 	public void click_RunButton_ForValid_inGraph()
 	{
 		RunButton.click();
+	}
+	
+	public void click_Logout()
+	{
+		logoutButton.click();
+		title = driver.getTitle();
+		
 	}
 	public String getTitle()
 	{
