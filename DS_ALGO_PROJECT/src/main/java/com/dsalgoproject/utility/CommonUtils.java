@@ -79,9 +79,9 @@ public class CommonUtils {
 				return false;
 	}
 	public static String getApplicationPage() {
-		String homeurl = properties.getProperty("applicationURL");
-		if (homeurl != null)
-			return homeurl;
+		String appurl = properties.getProperty("applicationURL");
+		if (appurl != null)
+			return appurl;
 		else
 			throw new RuntimeException("Homeurl not specified in the Configuration.properties file.");
 	}
@@ -100,9 +100,9 @@ public class CommonUtils {
 			throw new RuntimeException("Loginurl not specified in the Configuration.properties file.");
 	}
 	public static String getRegisterPage() {
-		String loginurl = properties.getProperty("registerurl");
-		if (loginurl != null)
-			return loginurl;
+		String registerurl = properties.getProperty("registerurl");
+		if (registerurl != null)
+			return registerurl;
 		else
 			throw new RuntimeException("Register url not specified in the Configuration.properties file.");
 	}
@@ -114,79 +114,79 @@ public class CommonUtils {
 			throw new RuntimeException("Excel file path not specified in the Configuration.properties file.");
 	}
 	public static String getDSPageUrl() {
-		String linkedlisturl = properties.getProperty("DataStructuresIntroduction");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String dsPageurl = properties.getProperty("DataStructuresIntroduction");
+		if (dsPageurl != null)
+			return dsPageurl;
 		else
 			throw new RuntimeException("linked list url not specified in the Configuration.properties file.");
 	}
 	public static String getDSPageTimeCompUrl() {
-		String linkedlisturl = properties.getProperty("TimeComplexity");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String timeCompurl = properties.getProperty("TimeComplexity");
+		if (timeCompurl != null)
+			return timeCompurl;
 		else
 			throw new RuntimeException("linked list Time Complexity url not specified in the Configuration.properties file.");
 	}
 	public static String getArrayPageUrl() {
-		String linkedlisturl = properties.getProperty("Arraypage");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String arrayPageurl = properties.getProperty("Arraypage");
+		if (arrayPageurl != null)
+			return arrayPageurl;
 		else
 			throw new RuntimeException("ArrayPage url not specified in the Configuration.properties file.");
 	}
 	public static String getArrayinPythonUrl() {
-		String linkedlisturl = properties.getProperty("ArrayinPython");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String arrayinPythonurl = properties.getProperty("ArrayinPython");
+		if (arrayinPythonurl != null)
+			return arrayinPythonurl;
 		else
 			throw new RuntimeException("Array in Python url not specified in the Configuration.properties file.");
 	}
 	public static String getTryEditor() {
-		String linkedlisturl = properties.getProperty("tryeditor");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String tryEditorurl = properties.getProperty("tryeditor");
+		if (tryEditorurl != null)
+			return tryEditorurl;
 		else
 			throw new RuntimeException("Array in Python url not specified in the Configuration.properties file.");
 	}
 	public static String getArrayPracticeUrl() {
-		String linkedlisturl = properties.getProperty("ArrayPractice");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String arrayPracticeurl = properties.getProperty("ArrayPractice");
+		if (arrayPracticeurl != null)
+			return arrayPracticeurl;
 		else
 			throw new RuntimeException("Array Practice url not specified in the Configuration.properties file.");
 	}
 	public static String getLinkedListUrl() {
-		String linkedlisturl = properties.getProperty("linkedlisturl");
+		String linkedlisturl = properties.getProperty("LinkedListpage");
 		if (linkedlisturl != null)
 			return linkedlisturl;
 		else
 			throw new RuntimeException("Linked List url not specified in the Configuration.properties file.");
 	}
 	public static String getStackUrl() {
-		String linkedlisturl = properties.getProperty("Stackpage");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String StackPageurl = properties.getProperty("Stackpage");
+		if (StackPageurl != null)
+			return StackPageurl;
 		else
 			throw new RuntimeException("Stack url not specified in the Configuration.properties file.");
 	}
 	public static String getQueueUrl() {
-		String linkedlisturl = properties.getProperty("queueurl");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String queueurl = properties.getProperty("queueurl");
+		if (queueurl != null)
+			return queueurl;
 		else
 			throw new RuntimeException("Queue url not specified in the Configuration.properties file.");
 	}
 	public static String getGraphUrl() {
-		String linkedlisturl = properties.getProperty("graphurl");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String graphurl = properties.getProperty("graphurl");
+		if (graphurl != null)
+			return graphurl;
 		else
 			throw new RuntimeException("Graph url not specified in the Configuration.properties file.");
 	}
 	public static String getTreeUrl() {
-		String linkedlisturl = properties.getProperty("treeurl");
-		if (linkedlisturl != null)
-			return linkedlisturl;
+		String treeurl = properties.getProperty("treeurl");
+		if (treeurl != null)
+			return treeurl;
 		else
 			throw new RuntimeException("Tree url not specified in the Configuration.properties file.");
 	}

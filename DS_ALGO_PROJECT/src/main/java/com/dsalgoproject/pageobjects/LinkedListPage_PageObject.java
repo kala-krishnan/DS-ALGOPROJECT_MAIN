@@ -37,30 +37,18 @@ public class LinkedListPage_PageObject {
 		
 		@FindBy(id="output")
 		private WebElement output;
+		String homePageURL = CommonUtils.getHomePage();
+		String linkedListURL = CommonUtils.getLinkedListUrl();
 		
 		public LinkedListPage_PageObject (WebDriver driver) {
 	 			this.driver = driver;
 	 			PageFactory.initElements(driver, this);
 	 			acts= new Actions(driver);	
 	 	}
-		public void loginPage()
-		{
-			driver.get("https://dsportalapp.herokuapp.com/login");
-		}
-		public void enterUserNamePassword(String userName ,String passWord)
-		{
-			driver.findElement(By.id("id_username")).sendKeys(userName);
-			driver.findElement(By.id("id_password")).sendKeys(passWord);
-			
-		}
-		public void clickLoginButton()
-		{
-			driver.findElement(By.xpath("//input[@value='Login']")).click();
-			title = driver.getTitle();
-			}
+		
 	 	public void homePage()
 		{
-			driver.get("https://dsportalapp.herokuapp.com/home");
+			driver.get(homePageURL);
 		}
 	 	public void selectLinkedListOption() throws InterruptedException
 		{
@@ -72,7 +60,7 @@ public class LinkedListPage_PageObject {
 		
 		public void getLinkedListPage()
 		{
-			driver.get("https://dsportalapp.herokuapp.com/linked-list/");
+			driver.get(linkedListURL);
 			
 		}
 		public boolean click_LinkedListMenu_LinkForValid(String linkNameFromFeature)
@@ -104,7 +92,7 @@ public class LinkedListPage_PageObject {
 		public String getMessage()
 		{
 			message = output.getText();
-			driver.navigate().to("https://dsportalapp.herokuapp.com/linked-list/");
+			driver.navigate().to(linkedListURL);
 			return message;
 		}
 		
@@ -112,7 +100,7 @@ public class LinkedListPage_PageObject {
 		{
 			errorMessage = driver.switchTo().alert().getText();
 			driver.switchTo().alert().accept();
-			driver.navigate().to("https://dsportalapp.herokuapp.com/home");
+			driver.navigate().to(homePageURL);
 			LOG.info("The error message is:" +errorMessage);
 			return errorMessage;
 			

@@ -19,11 +19,7 @@
 @tag
 Feature: To test the Array Page
 
-Scenario: The user is logged in successfully
-Given The user is in login page
-When The user is entering "Purnima1345@gmail.com" and "Kind@123"
-And The user clicks login button
-Then the user is successfully logged in
+
 
 
 Scenario: The User is able to navigate to Array Data Structure Page

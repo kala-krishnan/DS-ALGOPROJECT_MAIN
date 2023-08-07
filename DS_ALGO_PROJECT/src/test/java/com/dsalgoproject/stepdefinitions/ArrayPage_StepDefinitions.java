@@ -26,29 +26,7 @@ public class ArrayPage_StepDefinitions {
 		 driver = Hooks.getDriver();
 		 arrayPageObj =  new ArrayPage_PageObject(driver);
 	}
-	@Given("The user is in login page")
-	public void the_user_is_in_login_page() {
-		arrayPageObj.loginPage();
-	}
-
-	@When("The user is entering {string} and {string}")
-	public void the_user_is_entering_and(String string, String string2) {
-		arrayPageObj.enterUserNamePassword(string, string2);
-	}
-
-	@When("The user clicks login button")
-	public void the_user_clicks_login_button() {
-		arrayPageObj.clickLoginButton();
-	}
-
-	@Then("the user is successfully logged in")
-	public void the_user_is_successfully_logged_in() {
-		String title = arrayPageObj.getTitle();
-		String expectedTitle = driver.getTitle();
-			
-		Assert.assertEquals(title, expectedTitle);
-		LOG.info("Logged in Successfully" );
-	}
+	
 
 
 	@Given("The user is in Home Page of DSAlGO Project")
@@ -158,6 +136,7 @@ public class ArrayPage_StepDefinitions {
 
 	@Then("the user sees the success message")
 	public void the_user_sees_the_success_message() {
+		
 		LOG.info("The user gets the Submit message for valid python code in practice page: " +submitMessage);
 	}
 
@@ -192,6 +171,7 @@ public class ArrayPage_StepDefinitions {
 	}
 	@Then("the user sees the error message")
 	public void the_user_sees_the_error_message() {
+		
 		LOG.info("The user gets the Submit message for invalid python code in practice page: " +submitMessage);
 	}
 	

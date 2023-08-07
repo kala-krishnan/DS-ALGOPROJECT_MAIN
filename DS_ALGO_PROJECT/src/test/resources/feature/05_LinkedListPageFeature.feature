@@ -3,11 +3,7 @@
 @tag
 Feature: User navigates to the Linked list page and tests the various options under it
 
-Scenario: The user successfully logged into the HomePage to test for linked list
-Given The user logs into login page to enter details
-When The user is giving "Purnima1345@gmail.com" for uname and "Kind@123" for pwd
-And the user presses Login Button to successfully login
-Then The user is successfully logged into the homepage test for linked list
+
 
 Scenario: User navigated to "linked list" page
 Given The user is in the Home page after logged in
