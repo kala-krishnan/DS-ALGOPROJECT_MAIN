@@ -25,28 +25,7 @@ public class LinkedListPage_StepDefinitions {
 		 linkedListPageObj =  new LinkedListPage_PageObject(driver);
 		 LOG.info("driver is instantiated");
 	}
-	@Given("The user logs into login page to enter details")
-	public void the_user_logs_into_login_page_to_enter_details() {
-	    linkedListPageObj.loginPage();
-	}
-
-	@When("The user is giving {string} for uname and {string} for pwd")
-	public void the_user_is_giving_for_uname_and_for_pwd(String string, String string2) {
-	   linkedListPageObj.enterUserNamePassword(string, string2);
-	}
-
-	@When("the user presses Login Button to successfully login")
-	public void the_user_presses_login_button_to_successfully_login() {
-		
-	    linkedListPageObj.clickLoginButton();
-	    LOG.info("the linked list button is clicked");
-	}
-	@Then("The user is successfully logged into the homepage test for linked list")
-	public void the_user_is_successfully_logged_into_the_homepage_test_for_linked_list() {
-		title = linkedListPageObj.getTitle();
-		String expectedTitle = driver.getTitle();
-		Assert.assertEquals(title, expectedTitle);
-	}
+	
 	
 	@Given("The user is in the Home page after logged in")
 	public void the_user_is_in_the_home_page_after_logged_in() {

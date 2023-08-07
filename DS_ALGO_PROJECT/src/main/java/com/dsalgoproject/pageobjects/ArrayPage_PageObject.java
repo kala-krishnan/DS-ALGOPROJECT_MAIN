@@ -50,7 +50,11 @@ public class ArrayPage_PageObject {
 	Actions act;
 	String messageinPractice="";
 	String errmessageinPractice="";
-	
+	String homePageURL = CommonUtils.getHomePage();
+	String arrayPage = CommonUtils.getArrayPageUrl();
+	String arrayinPythonPage = CommonUtils.getArrayinPythonUrl();
+	String arrayinPracticePage = CommonUtils.getArrayPracticeUrl();
+	String excelURL = CommonUtils.getexcelfilepath();
 	
 	public ArrayPage_PageObject(WebDriver driver) {
 		this.driver = driver;
@@ -59,25 +63,10 @@ public class ArrayPage_PageObject {
 			}
 	
 	
-	public void loginPage()
-	{
-		driver.get("https://dsportalapp.herokuapp.com/login");
-	}
-	public void enterUserNamePassword(String userName ,String passWord)
-	{
-		driver.findElement(By.id("id_username")).sendKeys(userName);
-		driver.findElement(By.id("id_password")).sendKeys(passWord);
-		
-	}
-	public void clickLoginButton()
-	{
-		driver.findElement(By.xpath("//input[@value='Login']")).click();
-		title = driver.getTitle();
-	}
 	
 	public void homePage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/home");
+		driver.get(homePageURL);
 	}
 	public void selectArrayOption() throws InterruptedException
 	{
@@ -90,7 +79,7 @@ public class ArrayPage_PageObject {
 	
 	public void arrayDataStructurePage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/array");
+		driver.get(arrayPage);
 	}
 	
 	
@@ -117,7 +106,7 @@ public class ArrayPage_PageObject {
 	{
 		RunButton.click();
 		message = output.getText();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array");
+		driver.navigate().to(arrayPage);
 	}
 	
 	public boolean click_ArrayMenu_LinkForInvalid(String linkName)
@@ -142,12 +131,12 @@ public class ArrayPage_PageObject {
 		RunButton.click();
 		javaScriptMessage = driver.switchTo().alert().getText();
 		driver.switchTo().alert().accept();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/arrays-in-python/");
+		driver.navigate().to(arrayPage);
 	}
 	
 	public void goToArray_Practicepage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/array/arrays-in-python/");
+		driver.get(arrayinPythonPage);
 	}
 	public void clickPracticePage()
 	{
@@ -156,7 +145,7 @@ public class ArrayPage_PageObject {
 	}
 	public void goToPracticePage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/array/practice");
+		driver.get(arrayinPracticePage);
 	}
 	
 	public boolean clickExerciseName(String linkName)
@@ -169,7 +158,7 @@ public class ArrayPage_PageObject {
 	public void validExerciseCode(boolean exerciseMenu,String SheetName,int RowNumber )
 	{
 		String path=System.getProperty("user.dir");
-		ExcelUtils excel= new ExcelUtils(path+"//src//test//resources//ExcelData//ExcelData.xlsx",SheetName);
+		ExcelUtils excel= new ExcelUtils(path+excelURL,SheetName);
 		String exerecisePythonCode= excel.getCellDataString(RowNumber,0);
 		if(exerciseMenu)
 		{
@@ -187,14 +176,14 @@ public class ArrayPage_PageObject {
 	{
 		submitButton.click();
 		message = "Submission Success";
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		driver.navigate().to(arrayinPracticePage);
 		return message;
 	}
 	public String click_Submit_ForinValidExerciseCode()
 	{
 		submitButton.click();
 		message = "Submission Error";
-		driver.navigate().to("https://dsportalapp.herokuapp.com/array/practice");
+		driver.navigate().to(arrayinPracticePage);
 		return message;
 	}
 	public String getJavaScriptMessage()
