@@ -4,13 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import com.dsalgoproject.apphooks.Hooks;
 import com.dsalgoproject.pageobjects.QueuePage_PageObject;
-
+import com.dsalgoproject.utility.CommonUtils;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class QueuePage_StepDefinitions {
+  public class QueuePage_StepDefinitions {
 	
 	private WebDriver driver;
 	QueuePage_PageObject queuePageObj;
@@ -18,34 +18,12 @@ public class QueuePage_StepDefinitions {
 	String title;
 	String actualMessage;
 	
-	
-	public QueuePage_StepDefinitions()
+  public QueuePage_StepDefinitions()
 	{
 		 driver = Hooks.getDriver();
 		 queuePageObj =  new QueuePage_PageObject(driver);
 			
 	}
-		
-	@Given("The user enter login details")
-	public void the_user_enter_login_details() {
-	  
-		queuePageObj.Logindetails_Queue();
-	}
-
-	@When("The user enters the username and password and clicks Login button")
-	public void the_user_enters_the_username_and_password_and_clicks_login_button() {
-	
-		queuePageObj.correctusernameandpswd_Queue();
-	}
-	
-	@Then("The user is logged into the homepage")
-	public void the_user_is_logged_into_the_homepage() {
-		title = queuePageObj.getTitle();
-		String expectedTitle = driver.getTitle();
-		Assert.assertEquals(title, expectedTitle);
-	}
-
-
 	@Given("The user is on the home page")
 	public void the_user_is_on_the_home_page() {
 		
@@ -63,11 +41,8 @@ public class QueuePage_StepDefinitions {
 	public void the_user_is_navigating_to_the_queue_data_structure_page() {
 
 		title= queuePageObj.getTitle();
-
 		String expectedTitle= driver.getTitle();
-
 		Assert.assertEquals(title, expectedTitle);
-			
 	}
 
 	@Given("The user is in Queue Data Structure Page")
@@ -84,8 +59,7 @@ public class QueuePage_StepDefinitions {
 
 	@When("click Try Here button and enter valid {string} in TryEditor")
 	public void click_try_here_button_and_enter_valid_in_try_editor(String string) {
-		
-		
+			
 		queuePageObj.send_PythonCode_inQueue(queue_click, string);
 	}
 
@@ -97,11 +71,9 @@ public class QueuePage_StepDefinitions {
 
 	@Then("the user gets the valid {string}")
 	public void the_user_gets_the_valid(String string) {
-		
-		
+	
 		  actualMessage= queuePageObj.getMessage_Queue();
-
-		   Assert.assertEquals(actualMessage, string);
+		  Assert.assertEquals(actualMessage, string);
 	}
 	
 	@Given("The user is in Queue Data Structures Page")

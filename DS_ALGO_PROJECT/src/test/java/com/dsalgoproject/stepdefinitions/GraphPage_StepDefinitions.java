@@ -22,27 +22,6 @@ public class GraphPage_StepDefinitions {
 		 graphPageObj =  new GraphPage_PageObject(driver);
 	}
 	
-	@Given("The user is in login page to enter login details")
-	public void the_user_is_in_login_page_to_enter_login_details() {
-		graphPageObj.loginPage();
-	}
-
-	@When("The user is giving {string} and {string}")
-	public void the_user_is_giving_and(String string, String string2) {
-		graphPageObj.enterUserNamePassword(string, string2);
-	}
-	@When("the user presses Login Button")
-	public void the_user_presses_login_button() {
-		graphPageObj.clickLoginButton();
-		}
-	
-	@Then("The user is successfully logged into the homepage")
-	public void the_user_is_successfully_logged_into_the_homepage() {
-		title = graphPageObj.getTitle();
-		String expectedTitle = driver.getTitle();
-		Assert.assertEquals(title, expectedTitle);
-	}
-
 	@Given("The user is in the HomePage")
 	public void the_user_is_in_the_home_page() {
 		graphPageObj.homePage();

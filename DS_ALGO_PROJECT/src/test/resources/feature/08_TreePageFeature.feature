@@ -18,12 +18,6 @@
 #Sample Feature Definition Template
 @tag
 Feature: To test Tree Data Structure Page
-Scenario: The User is logged into the Homepage
-Given The user is in the login page of DS Algo 
-When the user gives the username and password from the excel sheet
-And then clicks the login button for logging into the page 
-Then the user goes to the home page of the project
-	
 	Scenario: The user navigates to the Tree Data Structure page
 	Given The user in the homepage of DS Tree dropdown page
 	When The user selects Tree item from the dropdown menu

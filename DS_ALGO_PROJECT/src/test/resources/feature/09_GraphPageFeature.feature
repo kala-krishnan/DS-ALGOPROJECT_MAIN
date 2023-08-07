@@ -18,13 +18,6 @@
 #Sample Feature Definition Template
 @tag
 Feature: To test the Graph Page
-
-Scenario: The user is logged into the HomePage
-Given The user is in login page to enter login details
-When The user is giving "Purnima1345@gmail.com" and "Kind@123"
-And the user presses Login Button
-Then The user is successfully logged into the homepage
-
 Scenario: The user navigates to Graph Data structure Page
 Given The user is in the HomePage
 When the user is selecting the Graph item from the drop down menu 
@@ -32,7 +25,7 @@ Then the user navigates to the Graph Data Structure Page
 
 Scenario Outline: The user is able to navigate to Graph topic page and run code in the tryeditor
 Given The user is in the Graph Data Structure Page
-When the user clicks "<Graphoption>" in Grpah Data Structure page
+When the user clicks "<Graphoption>" in Graph Data Structure page
 And the user enter valid "<PythonCode>" for Graph
 And the user clicks Run button for the Python code for Graph module
 Then the user see the graph module excepted "<output>"
@@ -44,7 +37,7 @@ Examples:
  
  Scenario Outline: The user is able to navigate to Graph topic page and runs code in the tryeditor page
 Given The user is present in the Graph Data Structure Page
-When the user click "<GraphoptionValue>" in Grpah Data Structure page
+When the user click "<GraphoptionValue>" in Graph Data Structure page
 And the user enters inValid "<PythonCode>" for Graph
 And the user clicks Run button in the tryEditor Page for the Python code for Graph module
 Then the user will get the graph module "<errormessage>"

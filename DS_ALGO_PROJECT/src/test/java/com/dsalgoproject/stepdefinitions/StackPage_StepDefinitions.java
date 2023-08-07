@@ -1,11 +1,8 @@
 package com.dsalgoproject.stepdefinitions;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-
 import com.dsalgoproject.apphooks.Hooks;
 import com.dsalgoproject.pageobjects.StackPage_PageObject;
-
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,25 +21,8 @@ public class StackPage_StepDefinitions {
 	String title; 
 	String actualMessage;
 	
-	boolean Stackmanuclick;
+	boolean Stackmenuclick;
 	
-	@Given("The user is on the Signin page of DS Algo portal")
-	public void the_user_is_on_the_signin_page_of_ds_algo_portal() {
-	    StackObj.signInPage();
-	}
-
-	@When("The user enters valid {string} and {string}")
-	public void the_user_enters_valid_and(String string, String string2) {
-	   StackObj.CorrectUsernameAndPassword();
-	}
-
-	@Then("The user is successfully login to the homepage")
-	public void the_user_is_successfully_login_to_the_homepage() {
-		title = StackObj.getTitle();
-		String expectedTitle = driver.getTitle();
-		Assert.assertEquals(title, expectedTitle);
-	}
-
 	@Given("The user is on the home page after being logged in")
 	public void the_user_is_on_the_home_page_after_being_logged_in() {
 		StackObj.HomePage();
@@ -67,12 +47,12 @@ public class StackPage_StepDefinitions {
 
 	@When("the user clicks {string} in Stack Data Structure page")
 	public void the_user_clicks_in_stack_data_structure_page(String string) {
-		Stackmanuclick=StackObj.click_StackMenu_LinkForValid(string);
+		Stackmenuclick=StackObj.click_StackMenu_LinkForValid(string);
 	}
 
 	@When("the user enter valid {string} for Stack")
 	public void the_user_enter_valid_for_stack(String string) {
-		StackObj.send_PythonCode_inStack(Stackmanuclick, string);
+		StackObj.send_PythonCode_inStack(Stackmenuclick, string);
 	}
 
 	@When("the user clicks Run button for the Python code for Stack module")
@@ -93,12 +73,12 @@ public class StackPage_StepDefinitions {
 
 	@When("the user click {string} in Stack Data Structure page")
 	public void the_user_click_in_stack_data_structure_page(String string) {
-		Stackmanuclick=StackObj.click_StackMenu_LinkForValid(string);
+		Stackmenuclick=StackObj.click_StackMenu_LinkForValid(string);
 	}
 
 	@When("the user enters inValid {string} for Stack")
 	public void the_user_enters_in_valid_for_stack(String string) {
-		StackObj.send_PythonCode_inStack(Stackmanuclick, string);
+		StackObj.send_PythonCode_inStack(Stackmenuclick, string);
 	}
 
 	@When("the user clicks Run button in the tryEditor Page for the Python code for Stack module")

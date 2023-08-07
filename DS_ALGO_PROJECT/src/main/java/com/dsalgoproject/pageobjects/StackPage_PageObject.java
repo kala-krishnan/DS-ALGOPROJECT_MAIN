@@ -15,9 +15,7 @@ import com.dsalgoproject.utility.ExcelUtils;
 public class StackPage_PageObject {
 	
 	WebDriver driver;
-	
- 	
-	
+	 		
 	@FindBy(xpath ="html/body/div[2]/div/div[2]/form/input[2]")
  	WebElement Username;
  	
@@ -27,39 +25,38 @@ public class StackPage_PageObject {
  	@FindBy (xpath = "html/body/div[2]/div/div[2]/form/input[4]")
  	WebElement logInButton;;
 
-   @FindBy(linkText = "Data Structures")
+    @FindBy(linkText = "Data Structures")
     public WebElement dataStrDropDown;
 
-   @FindBy(xpath = "html/body/div/nav/div/div/div/div/a[3]")
-   public WebElement stackButton;
+    @FindBy(xpath = "html/body/div/nav/div/div/div/div/a[3]")
+    public WebElement stackButton;
 	
-   @FindBy(linkText = "Data Structures")
+    @FindBy(linkText = "Data Structures")
 	private WebElement DataStrIntroGetStarted;
 	   
-   @FindBy (linkText = "Try here>>>")
-   private WebElement tryHereButton;
-  
+    @FindBy (linkText = "Try here>>>")
+    private WebElement tryHereButton;
    
-   @FindBy (xpath = "//form/div/div/div/textarea")
-   private WebElement tryEditor;
+    @FindBy (xpath = "//form/div/div/div/textarea")
+    private WebElement tryEditor;
    
-   @FindBy (xpath = "//button[text()='Run']")
-   private WebElement RunButton;
+    @FindBy (xpath = "//button[text()='Run']")
+    private WebElement RunButton;
    
-   @FindBy (id = "output")
-   private WebElement editorMsg;
-   
-
-   
+    @FindBy (id = "output")
+    private WebElement editorMsg;
+    
+    @FindBy(xpath="//a[@class='list-group-item']")
+	List<WebElement> GetStartedButtons;
    
    ExcelUtils excel;
    private Actions act;
    String title="";
    String message="";
    String errorMessage="";
+   String homePageURL = CommonUtils.getHomePage();
+   String stackPageURL = CommonUtils.getStackUrl();	
 	
-	@FindBy(xpath="//a[@class='list-group-item']")
-	List<WebElement> GetStartedButtons;
 	
 	public StackPage_PageObject(WebDriver driver) {
         this.driver = driver;
@@ -67,25 +64,8 @@ public class StackPage_PageObject {
         PageFactory.initElements(driver, this);
         
     }
-	
-	
-	
-	public void signInPage () {
-		driver.get("https://dsportalapp.herokuapp.com/login");
-	}
-	
-	public void CorrectUsernameAndPassword()
- 	{
- 		
- 		//Username.click();
-    Username.sendKeys("Numpysdet84");
-		//password.click();
-	password.sendKeys("sdet84batch");
-	logInButton.click();
-	title = driver.getTitle();
- 	}
 	public void HomePage () {
-		driver.get("https://dsportalapp.herokuapp.com/home");
+		driver.get(homePageURL);
 	}
 	
 	public void checkSelectBox() throws InterruptedException {
@@ -98,7 +78,7 @@ public class StackPage_PageObject {
 	
 	public void StackDataStructurePage()
 	{
-		driver.get("https://dsportalapp.herokuapp.com/stack");
+		driver.get(stackPageURL);
 	}
 	
 	public boolean click_StackMenu_LinkForValid(String linkNameFromFeature)
@@ -125,14 +105,14 @@ public class StackPage_PageObject {
 	public String getMessage()
 	{
 		message = editorMsg.getText();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/stack/");
+		driver.navigate().to(stackPageURL);
 		return message;
 	}
 	public String getErrorMessage()
 	{
 		errorMessage = driver.switchTo().alert().getText();
 		driver.switchTo().alert().accept();
-		driver.navigate().to("https://dsportalapp.herokuapp.com/stack/");
+		driver.navigate().to(homePageURL);
 		return errorMessage;
 	}
 	public String getTitle()
