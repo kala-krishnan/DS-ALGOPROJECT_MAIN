@@ -47,3 +47,8 @@ Examples:
  | Graph                          |    abcd        | NameError: name 'abcd' is not defined on line 1               |
  | Graph Representations          |    abcd        | NameError: name 'abcd' is not defined on line 1               |
  
+ Scenario: The user logged out successfully from DS-ALGO Home Page
+ Given The user is in homePage and trying to click Logout
+ When the user clicks Logout in DS-Algo After testing the scenarios
+ Then the user navigates to the application url page
+ 
