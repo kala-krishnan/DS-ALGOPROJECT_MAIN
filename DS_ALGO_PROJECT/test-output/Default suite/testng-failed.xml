@@ -7,7 +7,7 @@
         <methods>
           <include name="setUpClass"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="7"/>
+          <include name="runScenario" invocation-numbers="48 19 20 22 23 24 25 26 45 46 47"/>
         </methods>
       </class> <!-- com.dsalgoproject.testrunner.RunnerFile -->
     </classes>
