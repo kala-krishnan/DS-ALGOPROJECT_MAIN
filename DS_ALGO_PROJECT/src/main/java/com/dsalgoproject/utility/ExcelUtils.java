@@ -9,6 +9,7 @@ public class ExcelUtils {
 	static String path;
 	static XSSFWorkbook workbook;
 	static XSSFSheet sheet;
+	static String excelURL = CommonUtils.getexcelfilepath();
 
 public ExcelUtils(String excelPath, String sheetName) {
 try {
@@ -16,6 +17,7 @@ try {
 path=System.getProperty("user.dir");
 workbook= new XSSFWorkbook(excelPath);
 sheet= workbook.getSheet(sheetName);
+workbook.close();
 
 }catch(Exception e) {
 
@@ -35,7 +37,7 @@ public static void getRowCount() {
 try {
 
 	path=System.getProperty("user.dir");
-	workbook= new XSSFWorkbook(path+"//src//test//resources//ExcelData//ExcelData.xlsx");
+	workbook= new XSSFWorkbook(path+excelURL);
 	sheet= workbook.getSheet("Login");	
 	int rowCount= sheet.getPhysicalNumberOfRows();
 	System.out.println("No.of rows:" +rowCount);
